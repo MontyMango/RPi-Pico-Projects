@@ -1,11 +1,9 @@
 import machine
 import utime
 
-# Make sure the wires are in the breadboard and in the correct location before starting!
+# IMPORTANT BEFORE STARTING!
+# Double check and make sure the wires are in the breadboard and in the correct location!
 # If they are not, the controller will go crazy and say that you are pressing the button repeatedly!
-
-
-
 
 # Safe to edit variables
 
@@ -15,10 +13,12 @@ refresh_time = .25
 
 
 # LED pin locations (Consult your device documentation for GP location before editing location)
+# Used to send a power signal to the buttons
 button_1_power = 13
 button_2_power = 14
 button_3_power = 15
 
+# Used to recieve the power signal to see what buttons were pressed
 button_1_reciever = 16
 button_2_reciever = 17
 button_3_reciever = 18
