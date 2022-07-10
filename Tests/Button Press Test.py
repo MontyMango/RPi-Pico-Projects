@@ -7,8 +7,8 @@ import utime
 
 # Safe to edit variables
 
-# how long should the device wait for before checking the input again?
-# Reminder: Shorter time = more sensitive (<=.25) | Longer time = less sensitive (.5<) 
+# How many seconds should the device wait for before checking the input again?
+# Suggestions: Shorter time = (.25) | Longer time = (.5) 
 refresh_time = .25
 
 
