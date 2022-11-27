@@ -13,14 +13,14 @@ These are all of my Raspberry Pi Pico experiments.
 - [x] LED Bar
 > Currently in its branch right now for testing.
 
-- [] Motion Sensor
-- [] Multicolored LED Light
-- [] LED Text Block
-- [] Charger
+- [ ] Motion Sensor
+- [ ] Multicolored LED Light
+- [ ] LED Text Block
+- [ ] Charger
 
 ## Pico W
 ### Finished Projects
 Haven't done any yet...
 
 ### Planned Projects
-- [] Server & Reciever
+- [ ] Server & Reciever
