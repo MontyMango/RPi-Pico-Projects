@@ -1,5 +1,26 @@
 # RPi-Pico-Breadboard
 These are all of my Raspberry Pi Pico experiments. 
+ 
+## Pico & Pico W Projects
+### Finished Projects
+[LED Test](https://github.com/MontyMango/RPi-Pico-Projects/blob/main/Pico/LED%20Test.py)
+> Used for testing LED lights. LED tests prints and flashes the light that is flashing.
 
-# Pins on the Raspberry Pi Pico 2
-![image](https://60a99bedadae98078522-a9b6cded92292ef3bace063619038eb1.ssl.cf2.rackcdn.com/images_brands_RaspberryPi_223214Pico_223214Img2.jpg)
+[Button Test](https://github.com/MontyMango/RPi-Pico-Projects/blob/main/Pico/Button%20Press%20Test.py)
+> Used for testing buttons. Button test prints out to the terminal to tell which button you have pressed.
+
+### Planned Projects
+[x] LED Bar
+> Currently in its branch right now for testing.
+
+[] Motion Sensor
+[] Multicolored LED Light
+[] LED Text Block
+[] Charger
+
+## Pico W
+### Finished Projects
+Haven't done any yet...
+
+### Planned Projects
+[] Server & Reciever
