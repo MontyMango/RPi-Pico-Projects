@@ -10,17 +10,17 @@ These are all of my Raspberry Pi Pico experiments.
 > Used for testing buttons. Button test prints out to the terminal to tell which button you have pressed.
 
 ### Planned Projects
-[x] LED Bar
+- [x] LED Bar
 > Currently in its branch right now for testing.
 
-[] Motion Sensor
-[] Multicolored LED Light
-[] LED Text Block
-[] Charger
+- [] Motion Sensor
+- [] Multicolored LED Light
+- [] LED Text Block
+- [] Charger
 
 ## Pico W
 ### Finished Projects
 Haven't done any yet...
 
 ### Planned Projects
-[] Server & Reciever
+- [] Server & Reciever
