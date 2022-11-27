@@ -1,4 +1,4 @@
-# RPi-Pico-Breadboard
+# RPi-Pico-Projects
 These are all of my Raspberry Pi Pico experiments. 
  
 ## Pico & Pico W Projects
