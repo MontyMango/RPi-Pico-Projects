@@ -14,27 +14,7 @@ Experiments that have been performed on a Raspberry Pi Pico.
 ### LED Bar Test (Link doesn't work right now)
 > (Being tested right now) Used for testing the LED bar. LED Bar prints out which LED is on and off.
 
-### Planned Projects
-(There are a lot of projects that I want to get to. These aren't in order of priority.)
-- [ ] Motion Sensor
-- [ ] Multicolored LED Light
-- [ ] LED Text Block
-- [ ] Charger
-- [ ] Servo Test
-- [ ] Step Motor Test
-- [ ] Buzzer Test
-- [ ] Temperature & Humidity Test
-- [ ] Ultrasonic Range Sensor Test
-- [ ] Switch Test
-- [ ] Keypad Test
-- [ ] Potentiometer Test
-- [ ] Joystick Test
-- [ ] Potentiometer Test
-
 ---
 ## (Specifically) Pico W
 ### Finished Projects
 Haven't done any yet...
-
-### Planned Projects
-- [ ] Server & Receiver
