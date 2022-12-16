@@ -18,7 +18,7 @@ button_1_power = 13
 button_2_power = 14
 button_3_power = 15
 
-# Used to recieve the power signal to see what buttons were pressed
+# Used to receive the power signal to see what buttons were pressed
 button_1_reciever = 16
 button_2_reciever = 17
 button_3_reciever = 18
@@ -36,12 +36,12 @@ btn_1_reciever = machine.Pin(button_1_reciever, machine.Pin.IN)
 btn_2_reciever = machine.Pin(button_2_reciever, machine.Pin.IN)
 btn_3_reciever = machine.Pin(button_3_reciever, machine.Pin.IN)
 
+button_array = [btn_1_reciever, btn_2_reciever, btn_3_reciever]
 
 # Turns the buttons on for input
 def power_on_buttons():
-    btn_1_pwr.value(1)
-    btn_2_pwr.value(1)
-    btn_3_pwr.value(1)
+    for i in button_array:
+        i.value(1)
 
 # Checks if any buttons are pressed
 def wait_for_press():
