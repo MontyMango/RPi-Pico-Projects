@@ -31,7 +31,7 @@ LED_ARRAY = [led_1, led_2, led_3]
 def all_on():
     for i in LED_ARRAY:
         i.value(1)
-        utime.sleep(time_on)
+    utime.sleep(time_on)
 
 
 # Turns only the 1st LED on
@@ -72,7 +72,7 @@ def turn_random_led_off():
 def all_off():
     for i in LED_ARRAY:
         i.value(0)
-        utime.sleep(time_off)
+    utime.sleep(time_off)
 
 
 while __name__ == '__main__':
