@@ -57,13 +57,16 @@ def only_3rd_led():
     led_3.value(1)
     utime.sleep(time_on)
 
+
 # Turns on a random LED in the array.
 def turn_random_led_on():
     random.choice(LED_ARRAY).value(1)
 
+
 # Turns off a random LED in the array
 def turn_random_led_off():
     random.choice(LED_ARRAY).value(0)
+
 
 # Turns all LEDs off
 def all_off():
