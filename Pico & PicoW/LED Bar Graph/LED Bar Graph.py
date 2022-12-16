@@ -5,7 +5,7 @@ import utime
 
 # How many seconds should the computer wait before doing the next action?
 # Suggestions: Shorter time = (.5) | Longer time = (1) 
-wait_time = .5
+wait_time = .1
 
 # LED Variables
 # Consult your device documentation for GP location before editing location (ex: GP0 = 0 (Pin 1) )
@@ -35,65 +35,114 @@ BARLED8 = machine.Pin(LED8_GP, machine.Pin.OUT)  # defines the 8th bar led
 BARLED9 = machine.Pin(LED9_GP, machine.Pin.OUT)  # defines the 9th bar led
 BARLED10 = machine.Pin(LED10_GP, machine.Pin.OUT)  # defines the 10th bar led
 
-# List for each led bar
-BarGraph = [BARLED1, BARLED2, BARLED3, BARLED4, BARLED5, BARLED6, BARLED7, BARLED8, BARLED9, BARLED10]
-SIZE = len(BarGraph)
 
+# List for each led bar
 
 # Functions for mainloop()
 
-# Turns LEDs on or off from the left side (LightValue: 1 = Off, 0 = On)
-def fromleft(LightValue):
-    for LEDBAR in BarGraph:
-        LEDBAR.value(LightValue)
-        outputLight(LEDBAR, LightValue)
-        utime.sleep(wait_time)
+class LEDBar:
+    def __init__(self):
+        # Used for subtraction and addition
+        self.right_end = 0
+        self.left_end = 0
+
+        self.BarGraph = [BARLED1, BARLED2, BARLED3, BARLED4, BARLED5, BARLED6, BARLED7, BARLED8, BARLED9, BARLED10]
+        self.SIZE = len(self.BarGraph)
+
+    # Turns LEDs on or off from the left side (LightValue: 1 = Off, 0 = On)
+    def Fillfromleft(self, LightValue):
+        for LEDBAR in self.BarGraph:
+            LEDBAR.value(LightValue)
+            self.outputLight(LEDBAR, LightValue)
+            utime.sleep(wait_time)
+        if LightValue == 1:
+            self.resetSides()
+        else:
+            self.filledSides(False)
+
+    # Turns LEDs on or off from the right side (LightValue: 1 = Off, 0 = On)
+    def Fillfromright(self, LightValue):
+        for LEDBARNUM in self.SIZE:
+            LEDBAR = self.BarGraph[(self.SIZE - 1) - LEDBARNUM]
+            LEDBAR.value(LightValue)
+            self.outputLight(LEDBAR, LightValue)
+            utime.sleep(wait_time)
+        if LightValue == 1:
+            self.resetSides()
+        else:
+            self.filledSides(True)
+
+    # (AddOrSubtract Values: 1 = Off, 0 = On)
+    def fromleft(self, NumValue, AddOrSubtract):
+        OldValue = self.converter(AddOrSubtract)
+        NewValue = AddOrSubtract
+        if AddOrSubtract == 0: side = self.left_end
+        else: side = self.right_end
+
+        if NumValue < self.SIZE:
+            for LEDBAR in self.BarGraph:
+                if NumValue > 0:
+                    if LEDBAR.value() == OldValue:
+                        LEDBAR.value(NewValue)  # Turns it either on or off
+                        NumValue -= 1
+                        side+=1
+                        self.outputLight(side, AddOrSubtract)
+                        utime.sleep(wait_time)
+        else:
+            if NewValue == 0:
+                self.Fillfromleft(0)
+            else:
+                self.Fillfromleft(1)
+
+    # Used to show if the light is on or off.
+    def outputLight(self, LED, value):
+        # 1 = Off, 0 = On
+        if value == 1:
+            status = "Off"
+        else:
+            status = "On"
+        print("LED-Bar #" + str(LED), status)
+
+    # Turns all LEDs off quickly
+    def empty(self):
+        for LEDBAR in self.BarGraph:
+            LEDBAR.value(1)
+        self.resetSides()
+
+    # Turns all LEDs on quickly
+    def fill(self):
+        for LEDBAR in self.BarGraph:
+            LEDBAR.value(0)
+        self.right_end = (self.SIZE - 1)
+        self.left_end = 0
+
+    @staticmethod
+    def converter(value):
+        if value == 1:
+            return 0
+        else:
+            return 1
+
+    # Method is to be used in internal methods only!
+    def resetSides(self):
+        self.right_end = 0
+        self.left_end = 0
+
+    # Method is to be used in internal methods only!
+    def filledSides(self, flipped):
+        if(flipped):
+            self.right_end = 0
+            self.left_end = (self.SIZE - 1)
+        else:
+            self.right_end = (self.SIZE - 1)
+            self.left_end = 0
 
 
-# Turns LEDs on or off from the right side (LightValue: 1 = Off, 0 = On)
-def fromright(LightValue):
-    for LEDBARNUM in range(0, SIZE):
-        LEDBAR = BarGraph[SIZE - LEDBARNUM]
-        LEDBAR.value(LightValue)
-        outputLight(LEDBAR, LightValue)
-        utime.sleep(wait_time)
+# while __name__ == '__main__':
+# Makes sure that everything is off before starting.
+LEDBG = LEDBar()
+LEDBG.empty()
 
-
-# Used to show if the light is on or off.
-def outputLight(LED, value):
-    # 1 = Off, 0 = On
-    if value == 1: onoroff = "Off:"
-    else: onoroff = "On:"
-    print(onoroff, LED)
-
-
-# Turns all LEDs off
-def alloff():
-    for LEDBAR in BarGraph:
-        LEDBAR.value(1)
-
-
-# Turns all LEDs on
-def allon():
-    for LEDBAR in BarGraph:
-        LEDBAR.value(0)
-
-
-# Special functions
-def exiting():
-    alloff()
-
-
-while __name__ == '__main__':
-    # Makes sure that everything is off before starting.
-    alloff()
-
-    while True:
-        fromright()
-        fromleft()
-
-        utime.sleep(wait_time)
-        allon()
-        utime.sleep(wait_time)
-        alloff()
-        utime.sleep(wait_time)
+utime.sleep(.4)
+LEDBG.fromleft(5, 0)
+LEDBG.fromleft(5, 1)
