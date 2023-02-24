@@ -8,7 +8,7 @@ import random
 time_on = 3
 time_off = 1
 
-# LED pin locations (Consult your device documentation for GP location before editing location)
+# LED power pin locations (Consult your device documentation for GP location before editing location)
 # Reminder: The resistor cannot resist the long end, also ground the short end.
 led_1_GP = 0
 led_2_GP = 1
