@@ -42,9 +42,6 @@ BARLED10 = machine.Pin(LED10_GP, machine.Pin.OUT)  # defines the 10th bar led
 
 class LEDBar:
     def __init__(self):
-        #self.right_end = 0
-        #self.left_end = 0
-        
         self.BarGraph = [BARLED1, BARLED2, BARLED3, BARLED4, BARLED5, BARLED6, BARLED7, BARLED8, BARLED9, BARLED10]
         self.SIZE = len(self.BarGraph)
         
@@ -54,7 +51,6 @@ class LEDBar:
             LEDBAR.value(LightValue)
             self.outputLight(LEDBAR, LightValue)
             utime.sleep(wait_time)
-        #self.filledSides(True)
 
 
     # Turns LEDs on or off from the right side (LightValue: 1 = Off, 0 = On)
@@ -64,7 +60,6 @@ class LEDBar:
             LEDBAR.value(LightValue)
             self.outputLight(LEDBAR, LightValue)
             utime.sleep(wait_time)
-        #self.filledSides(False)
 
     # Turns LEDs on or off from the middle (LightValue: 1 = Off, 0 = On)
     def FillfromMiddle(self, LightValue):
@@ -77,7 +72,6 @@ class LEDBar:
             self.outputLight(Left, LightValue)
             self.outputLight(Right, LightValue)
             utime.sleep(wait_time)
-        #self.filledSides(False)
 
     # Used to show if the light is on or off (1 = Off, 0 = On)
     def outputLight(self, LED, value):
@@ -89,27 +83,11 @@ class LEDBar:
     def empty(self):
         for LEDBAR in self.BarGraph:
             LEDBAR.value(1)
-        #self.resetSides()
 
     # Turns all LEDs on quickly
     def fill(self):
         for LEDBAR in self.BarGraph:
             LEDBAR.value(0)
-        #self.filledSides(False)
-    
-    # Method is to be used in internal methods only!
-    #def resetSides(self):
-    #    self.right_end = 0
-    #    self.left_end = 0
-
-    # Method is to be used in internal methods only!
-    #def filledSides(self, flipped=False):
-    #    if(flipped):
-    #        self.right_end = 0
-    #        self.left_end = (self.SIZE - 1)
-    #    else:
-    #        self.right_end = (self.SIZE - 1)
-    #        self.left_end = 0
 
 
 while __name__ == '__main__':

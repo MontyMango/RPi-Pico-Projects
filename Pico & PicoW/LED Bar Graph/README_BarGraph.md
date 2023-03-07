@@ -12,7 +12,7 @@ Used for testing the LED bar graph. This program powers on each LED in the bar g
 ## Instructions
 
 ### 1. Pico / Pico W Placement 
-* Place the Soldered Pico / Pico W on the end of the breadboard.
+* Place the Soldered Pico / Pico W into the breadboard. (Perferably at the end of the breadboard.)
 
 
 ### 2. Bar Graph LED Placement
