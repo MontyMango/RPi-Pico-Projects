@@ -19,12 +19,12 @@ led_3_GP = 2
 # Code is below, have fun learning!
 
 # Wiring locations (if you want to add more LEDs, you can add them here and in the array)
-led_1 = machine.Pin(led_1_GP, machine.Pin.OUT)  # define 1st led
-led_2 = machine.Pin(led_2_GP, machine.Pin.OUT)  # define 2nd led
-led_3 = machine.Pin(led_3_GP, machine.Pin.OUT)  # define 3rd led
+LED_1 = machine.Pin(led_1_GP, machine.Pin.OUT)  # define 1st led
+LED_2 = machine.Pin(led_2_GP, machine.Pin.OUT)  # define 2nd led
+LED_3 = machine.Pin(led_3_GP, machine.Pin.OUT)  # define 3rd led
 # led_# = machine.Pin(led_#_GP, machine.Pin.OUT) # Extra LED
 
-LED_ARRAY = [led_1, led_2, led_3]
+LED_ARRAY = [LED_1, LED_2, LED_3]
 
 
 # Turns all LEDs on
@@ -36,25 +36,25 @@ def all_on():
 
 # Turns only the 1st LED on
 def only_1st_led():
-    led_1.value(1)
-    led_2.value(0)
-    led_3.value(0)
+    LED_1.value(1)
+    LED_2.value(0)
+    LED_3.value(0)
     utime.sleep(time_on)
 
 
 # Turns only the 2nd LED on
 def only_2nd_led():
-    led_1.value(0)
-    led_2.value(1)
-    led_3.value(0)
+    LED_1.value(0)
+    LED_2.value(1)
+    LED_3.value(0)
     utime.sleep(time_on)
 
 
 # Turns only the 3rd LED on
 def only_3rd_led():
-    led_1.value(0)
-    led_2.value(0)
-    led_3.value(1)
+    LED_1.value(0)
+    LED_2.value(0)
+    LED_3.value(1)
     utime.sleep(time_on)
 
 

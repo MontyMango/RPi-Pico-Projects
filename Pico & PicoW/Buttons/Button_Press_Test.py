@@ -11,7 +11,6 @@ import utime
 # Suggestions: Shorter time = (.25) | Longer time = (.5) 
 refresh_time = .25
 
-
 # LED pin locations (Consult your device documentation for GP location before editing location)
 # Used to send a power signal to the buttons
 BUTTON_1_POWER = 13
@@ -26,34 +25,36 @@ BUTTON_3_RECIEVER = 18
 # ------------------------------ #
 # Code is below, have fun learning!
 
-# pins that power the buttons
-btn_1_pwr = machine.Pin(BUTTON_1_POWER, machine.Pin.OUT)
-btn_2_pwr = machine.Pin(BUTTON_2_POWER, machine.Pin.OUT)
-btn_3_pwr = machine.Pin(BUTTON_3_POWER, machine.Pin.OUT)
+# Pins that power the buttons (These are not used)
+BTN_1_PWR = machine.Pin(BUTTON_1_POWER, machine.Pin.OUT)
+BTN_2_PWR = machine.Pin(BUTTON_2_POWER, machine.Pin.OUT)
+BTN_3_PWR = machine.Pin(BUTTON_3_POWER, machine.Pin.OUT)
 
-# pins that recieve the signal from the buttons
+# Pins that recieve the signal from the buttons
 BTN_1_RCVR = machine.Pin(BUTTON_1_RECIEVER, machine.Pin.IN)
 BTN_2_RCVR = machine.Pin(BUTTON_2_RECIEVER, machine.Pin.IN)
 BTN_3_RCVR = machine.Pin(BUTTON_3_RECIEVER, machine.Pin.IN)
 
 
-button_array = [BTN_1_RCVR, BTN_2_RCVR, BTN_3_RCVR]
+BUTTON_ARRAY = [BTN_1_RCVR, BTN_2_RCVR, BTN_3_RCVR]
+
 
 # Turns the buttons on for input
 def power_on_buttons():
-    for button in button_array:
+    for button in BUTTON_ARRAY:
         button.value(1)
+
 
 # Checks if any buttons are pressed
 def check_buttons():
-    for button in button_array:
+    for button in BUTTON_ARRAY:
         if(button.value() == 1):
-            print("Button", button_array.index(button), "pressed")
+            print("Button", BUTTON_ARRAY.index(button), "pressed")
 
 
 while __name__ == '__main__':
     power_on_buttons()
-    
+
     while True:
         check_buttons()
         utime.sleep(refresh_time)

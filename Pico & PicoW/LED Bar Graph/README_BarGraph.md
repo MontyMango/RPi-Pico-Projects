@@ -26,7 +26,7 @@ Used for testing the LED bar graph. This program powers on each LED in the bar g
 
 
 ### 4. LED Cable Placement
-* Update and use the LED Variables list in the program while you are connecting the cables from the Pico to the LED Bar Graph. (Recommended if you don't want to be confused later!)
+1. Update and use the LED Variables list in the program while you are connecting the cables from the Pico to the LED Bar Graph. (Recommended if you don't want to be confused later!)
 
 
 ### Known issues while programming
