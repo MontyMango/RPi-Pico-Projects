@@ -5,8 +5,11 @@ import random
 # Safe to edit variables
 
 # Seconds on / off
-time_on = 3
-time_off = 1
+time_on = 2			# Time (in seconds) for the LED lights to be left on until the next action.
+time_off = 1		# Time (in seconds) for the LED lights to be left off until the next action.
+time_til_nxt_light = 1 # Time (in seconds), this is used for waiting for the next LED 
+                       # to either turn on or off in all_on and all_off.  
+
 
 # LED power pin locations (Consult your device documentation for GP location before editing location)
 # Reminder: The resistor cannot resist the long end, also ground the short end.
@@ -28,11 +31,23 @@ LED_ARRAY = [LED_1, LED_2, LED_3]
 
 
 # Turns all LEDs on
-def all_on():
+# FORCE = If you want to turn every LED off without waiting
+def all_on(FORCE):
     for i in LED_ARRAY:
         i.value(1)
+        if(not FORCE):
+            utime.sleep(time_til_nxt_light)
     utime.sleep(time_on)
-
+    
+# Turns all LEDs off
+# FORCE = If you want to turn every LED off without waiting
+def all_off(FORCE):
+    for i in LED_ARRAY:
+        i.value(0)
+        if(not FORCE):
+            utime.sleep(time_til_nxt_light)
+    utime.sleep(time_off)
+    
 
 # Turns only the 1st LED on
 def only_1st_led():
@@ -61,34 +76,28 @@ def only_3rd_led():
 # Turns on a random LED in the array.
 def turn_random_led_on():
     random.choice(LED_ARRAY).value(1)
+    utime.sleep(time_on)
 
 
 # Turns off a random LED in the array
 def turn_random_led_off():
     random.choice(LED_ARRAY).value(0)
-
-
-# Turns all LEDs off
-def all_off():
-    for i in LED_ARRAY:
-        i.value(0)
     utime.sleep(time_off)
+
+
+
 
 
 while __name__ == '__main__':
     while True:
-        all_on()
-        all_off()
+        all_on(False)
+        all_off(True)
 
         only_1st_led()
-        all_off()
+        all_off(True)
 
         only_2nd_led()
-        all_off()
+        all_off(True)
 
         only_3rd_led()
-        all_off()
-
-        turn_random_led_on()
-        turn_random_led_on()
-        all_off()
+        all_off(True)

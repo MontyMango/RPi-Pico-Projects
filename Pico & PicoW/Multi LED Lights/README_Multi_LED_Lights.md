@@ -24,7 +24,9 @@
 
 2. Place a cable from pin #38 (GND) to the - (negative) column on the right side.
 
-3. Connect a cable from the right side's - (negative) column to each of the LEDs' short ends to ground them.
+3. Connect a cable from the right side's - (negative) column to each of the LEDs' LONGEST pin to ground them.
+
+
 
 4. Connect 220Ω resistors from the + (positive) column to each of the LEDs' long ends to power them!
 
