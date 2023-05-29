@@ -13,5 +13,10 @@ Plug in the micro USB cable's USB end into your computer, and then plug the othe
 ### 2. Run the file
 Using your favorite IDE, run Connection_Test.py. It should only display some text on your computer.
 
-If you cannot get the file to run or cannot find an IDE to run. Please try one of these options:
-- VSCode: Pico (W) vREPL
+If you cannot get the file to run or cannot find an IDE to run. Please make sure you have done these:
+- Follow the instructions found on Raspberry Pi's website 
+  - https://www.raspberrypi.com/documentation/microcontrollers/micropython.html
+- Run the file with an IDE that identifies and runs programs on your board:
+  - (Easiest) Thonny IDE
+  - VSCode: Pico (W) vREPL
+  - PyCharm: MicroPython
