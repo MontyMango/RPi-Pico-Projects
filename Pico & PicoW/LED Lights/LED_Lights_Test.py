@@ -13,18 +13,18 @@ time_til_nxt_light = 1 # Time (in seconds), this is used for waiting for the nex
 
 # LED power pin locations (Consult your device documentation for GP location before editing location)
 # Reminder: The resistor cannot resist the long end, also ground the short end.
-led_1_GP = 0
-led_2_GP = 1
-led_3_GP = 2
+LED_1_GP = 0
+LED_2_GP = 1
+LED_3_GP = 2
 # led_#_GP = # (Extra LEDs can be added after this like this)
 
 # ------------------------------ #
 # Code is below, have fun learning!
 
 # Wiring locations (if you want to add more LEDs, you can add them here and in the array)
-LED_1 = machine.Pin(led_1_GP, machine.Pin.OUT)  # define 1st led
-LED_2 = machine.Pin(led_2_GP, machine.Pin.OUT)  # define 2nd led
-LED_3 = machine.Pin(led_3_GP, machine.Pin.OUT)  # define 3rd led
+LED_1 = machine.Pin(LED_1_GP, machine.Pin.OUT)  # define 1st led
+LED_2 = machine.Pin(LED_2_GP, machine.Pin.OUT)  # define 2nd led
+LED_3 = machine.Pin(LED_3_GP, machine.Pin.OUT)  # define 3rd led
 # led_# = machine.Pin(led_#_GP, machine.Pin.OUT) # Extra LED
 
 LED_ARRAY = [LED_1, LED_2, LED_3]

@@ -20,15 +20,14 @@
 
 
 ### 3. Connect the LEDs!
-1. Place a (male to male) cable from pin #36 (3V3(OUT)) to a port next to the leds
+1. Place a (male to male) cable from the GP led pins that are stated on the code (led_#_GP) to a open port next to the LEDs.
+> Please review and follow the code and pinout documentation while doing step 1!
 
 2. Place a cable from pin #38 (GND) to the - (negative) column on the right side.
 
-3. Connect a cable from the right side's - (negative) column to each of the LEDs' LONGEST pin to ground them.
+3. Connect a cable from the right side's - (negative) column to each of the LEDs' SHORTEST pin to ground them.
 
-
-
-4. Connect 220Ω resistors from the + (positive) column to each of the LEDs' long ends to power them!
+4. Connect the 220Ω resistors from the cable's row that you placed near the LEDs in step #1 to the LONGEST pin in the LEDs to power them! 
 
 5. Run the script and enjoy the light show!
 
