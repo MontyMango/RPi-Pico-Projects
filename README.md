@@ -5,6 +5,9 @@ Experiments that have been performed on a Raspberry Pi Pico.
 ## Pico & Pico W Projects
 ### Finished Projects
 
+### Connection Test (Link doesn't work right now)
+> Used to test the connection between your computer and your pico using Micropython!
+
 ### [LED Test](https://github.com/MontyMango/RPi-Pico-Projects/blob/main/Pico/LED%20Test.py)
 > Used for testing LED lights. LED Test prints to the terminal and flashes the light that is on.
 
